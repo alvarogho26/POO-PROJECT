@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerInicioSesion">
+   <children>
+      <ImageView fx:id="OlaBackground" fitHeight="392.0" fitWidth="617.0" layoutX="-7.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/OlasBackground.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c7d2dc" height="221.0" layoutX="204.0" layoutY="115.0" stroke="BLACK" strokeType="INSIDE" width="213.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="87.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label fx:id="LabelTitleInicioSesion" alignment="CENTER" layoutX="156.0" layoutY="25.0" prefHeight="37.0" prefWidth="287.0" style="-fx-background-color: A36D00; -fx-border-color: efb810;" text="Inicio de sesión como administrador" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="LabelUsuario" layoutX="282.0" layoutY="131.0" text="Usuario:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TextfieldAdminNombre" layoutX="228.0" layoutY="166.0" prefWidth="165.0" promptText="Ej. Pancho Sas" />
+      <Label fx:id="LAbelContraseña" layoutX="268.0" layoutY="200.0" text="Contraseña:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="PasswordFieldAdminContraseña" layoutX="228.0" layoutY="241.0" prefHeight="25.0" prefWidth="165.0" promptText="Ej. Mi contraseña" />
+      <Button fx:id="ButtonIniciarSesion" layoutX="268.0" layoutY="287.0" mnemonicParsing="false" onAction="#ActionIniciarSesion" text="Iniciar sesión" />
+      <Button fx:id="ButtonVolver" layoutX="14.0" layoutY="99.0" mnemonicParsing="false" onAction="#ActionVolver" text="Volver" />
+      <ImageView fx:id="Icono" fitHeight="87.0" fitWidth="134.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Icon.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

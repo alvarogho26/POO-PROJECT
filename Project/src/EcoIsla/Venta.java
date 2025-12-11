@@ -25,7 +25,13 @@ public class Venta {
     }
 
     public String resumenVenta(){
-        return "Cliente: " + cliente.getNombreCliente() + "\n" + "Embarcación: " + nombreEmbarcacion + "\n" + "Horario: " + horario + "\n" + "Asientos: " + String.join(", ", asientos) + "\n" + "Cantidad: " + cantidad + "\n" + "Total: $" + total;
+        String textoHorario = "";
+        switch (horario){
+            case 0: textoHorario = "Matutino"; break;
+            case 1: textoHorario = "Mediodía"; break;
+            case 2: textoHorario = "Vespertino"; break;
+        }
+        return "Cliente: " + cliente.getNombreCliente() + "\n" + "Embarcación: " + nombreEmbarcacion + "\n" + "Horario: " + textoHorario + "\n" + "Asientos: " + String.join(", ", asientos) + "\n" + "Cantidad: " + cantidad + "\n" + "Total: $" + total;
     }
 
     public int getTotal(){

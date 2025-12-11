@@ -1,15 +1,24 @@
 package controller;
 
+import java.io.IOException;
+
 import EcoIsla.Cliente;
 import EcoIsla.SistemaReservas;
+import EcoIsla.Venta;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
+import javafx.scene.image.ImageView;
+
 
 public class ControllerComprarAsientos {
 
@@ -19,6 +28,12 @@ public class ControllerComprarAsientos {
     private String[] asientosSeleccionados = new String[25]; 
     private int contadorSeleccionados = 0;
     private ToggleButton[][] matrizBotones;
+
+    @FXML
+    private ImageView OlaBackground;
+
+    @FXML
+    private ImageView Icono;
 
     @FXML
     private Button ButtonComprar;
@@ -236,6 +251,24 @@ public class ControllerComprarAsientos {
     }
 
 
+    @FXML
+    void ActionVolver(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VentanaViajes.fxml")); 
+            Parent root = loader.load();
+
+            ControllerViajes controller = loader.getController();
+            controller.setSistema(this.sistema);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al regresar a la ventana anterior.");
+        }
+    }
 
     @FXML
     void ActionComprar(ActionEvent event) {
@@ -264,13 +297,13 @@ public class ControllerComprarAsientos {
         boolean exito = sistema.venderPasajes(idEmbarcacion, horario, asientosParaVender, cliente);
 
         if (exito) {
-            
-            mostrarAlerta("Felicitacioness", "Venta realizada correctamente.");
-            Stage stage = (Stage) ButtonComprar.getScene().getWindow();
-            stage.close();
-        } else {
-            mostrarAlerta("Error", "La venta no se pudo realizar");
+            String nombreBarco = sistema.getEmbarcaciones()[idEmbarcacion].getNombre();
+            EcoIsla.Venta ventaTemp = new EcoIsla.Venta(cliente, nombreBarco, idEmbarcacion, horario, asientosParaVender);
+            String texto = ventaTemp.resumenVenta();
+            abrirVentanaResumen(event, texto);
         }
+
+        
     }
 
     private void mostrarAlerta(String titulo, String contenido){
@@ -322,7 +355,7 @@ public class ControllerComprarAsientos {
                 if (asientosSeleccionados[i] == null) {
                     asientosSeleccionados[i] = etiqueta;
                     contadorSeleccionados++;
-                    btn.setStyle("-fx-background-color: lightgreen;");
+                    btn.setStyle("-fx-background-color: green;");
                     break;
                 }
             }
@@ -338,5 +371,22 @@ public class ControllerComprarAsientos {
         }
     }
 
+    private void abrirVentanaResumen(ActionEvent event, String resumen) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VentanaResumenVenta.fxml")); // Asegúrate que el nombre coincida
+            Parent root = loader.load();
 
+            ControllerResumenVenta controller = loader.getController();
+            
+            controller.setDatos(this.sistema, resumen);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar la ventana de Resumen.");
+        }
+    }
 }

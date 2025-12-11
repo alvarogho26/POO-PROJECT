@@ -23,17 +23,26 @@ public class ResumenVentas {
         return totalGeneral;
     }
 
-    public void mostrarResumen(){
-        System.out.println("Resumen del día:");
-        for (int i = 0; i < 3; i++){
-            System.out.println("Embarcación " + i);
-            System.out.println("  Matutino: " + pasajesPorEmbarcacionPorHorario[i][0]);
-            System.out.println("  Mediodía: " + pasajesPorEmbarcacionPorHorario[i][1]);
-            System.out.println("  Vespertino: " + pasajesPorEmbarcacionPorHorario[i][2]);
-            System.out.println("  Total recaudado: $" + totalDineroPorEmbarcacion[i]);
-            System.out.println();
+    public String mostrarResumen() {
+        String texto = "Reporte del día:\n\n";
+
+        for (int i = 0; i < pasajesPorEmbarcacionPorHorario.length; i++){
+            String nombre = "";
+            if (i == 0) nombre = "Felipe";
+            else if (i == 1) nombre = "Trauco";
+            else nombre = "Caleuchito";
+
+            texto += "Embarcación " + nombre + "\n";
+            texto += "  Matutino: " + pasajesPorEmbarcacionPorHorario[i][0] + "\n";
+            texto += "  Mediodía: " + pasajesPorEmbarcacionPorHorario[i][1] + "\n";
+            texto += "  Vespertino: " + pasajesPorEmbarcacionPorHorario[i][2] + "\n";
+            texto += "  Total recaudado: $" + totalDineroPorEmbarcacion[i] + "\n\n";
         }
-        System.out.println("Total de dinero recaudado durante el día: $" + totalGeneral);
+        
+        texto += "--------------------------------------\n";
+        texto += "Total de dinero recaudado durante el día: $" + totalGeneral;
+
+        return texto;
     }
 }
 

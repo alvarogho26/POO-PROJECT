@@ -31,6 +31,9 @@ public class Controller {
     private ImageView ImagePortada;
 
     @FXML
+    private ImageView Icono;
+
+    @FXML
     private Label LabelEcoIslaDesc;
 
     @FXML
@@ -44,7 +47,22 @@ public class Controller {
 
     @FXML
     void ActionIniciarSesion(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VentanaInicioSesion.fxml"));
+            Parent root = loader.load();
 
+            ControllerInicioSesion controller = loader.getController();
+
+            controller.setSistema(this.sistema);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar la ventana.");
+        }
     }
 
     @FXML

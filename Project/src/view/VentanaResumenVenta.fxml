@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerResumenVenta">
+   <children>
+      <ImageView fx:id="OlaBackground" fitHeight="392.0" fitWidth="617.0" layoutX="-7.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/OlasBackground.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="87.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label fx:id="LabelVentaExitosa" layoutX="230.0" layoutY="85.0" text="¡Venta Exitosa!">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="Imagentick" fitHeight="98.0" fitWidth="80.0" layoutX="260.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/tick.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="ButtonRegresarMenu" layoutX="222.0" layoutY="316.0" mnemonicParsing="false" onAction="#ActionButtonRegresarMenu" text="Regresar al menú principal" />
+      <Label fx:id="LabelResumen" alignment="CENTER" layoutX="159.0" layoutY="149.0" prefHeight="149.0" prefWidth="283.0" style="-fx-background-color: A36D00; -fx-border-image-width: 10px; -fx-border-color: efb810; -fx-border-style: solid;" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="Icono" fitHeight="87.0" fitWidth="134.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Icon.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

@@ -4,16 +4,22 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerComprarAsientos">
    <children>
+      <ImageView fx:id="OlaBackground" fitHeight="392.0" fitWidth="617.0" layoutX="-7.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/OlasBackground.png" />
+         </image>
+      </ImageView>
       <ToggleButton fx:id="buttonA3" layoutX="413.0" layoutY="111.0" mnemonicParsing="false" onAction="#ActionA3" prefHeight="45.0" prefWidth="45.0" text="A3" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="87.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Label fx:id="LabelTitleAsientos" alignment="CENTER" layoutX="224.0" layoutY="19.0" prefHeight="50.0" prefWidth="152.0" style="-fx-background-color: A36D00;" text="Comprar Asientos" textFill="WHITE">
+      <Label fx:id="LabelTitleAsientos" alignment="CENTER" layoutX="224.0" layoutY="19.0" prefHeight="50.0" prefWidth="152.0" style="-fx-background-color: A36D00; -fx-border-color: efb810;" text="Comprar Asientos" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -54,5 +60,11 @@
          </font>
       </Button>
       <Label fx:id="LabelPrecios" layoutX="365.0" layoutY="344.0" text="Precio por asiento: $15000" />
+      <ImageView fx:id="Icono" fitHeight="87.0" fitWidth="134.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Icon.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="ButtonVolver" layoutX="14.0" layoutY="99.0" mnemonicParsing="false" onAction="#ActionVolver" text="Volver" />
    </children>
 </Pane>

@@ -19,7 +19,6 @@ import java.io.IOException;
 
 public class ControllerViajes {
 
-
     private SistemaReservas sistema;
 
     public void setSistema(SistemaReservas sistema){
@@ -58,6 +57,25 @@ public class ControllerViajes {
     
     @FXML
     private Label LabelTitleViajes;
+
+    @FXML
+    void ActionVolver(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Ventana.fxml")); 
+            Parent root = loader.load();
+
+            Controller controller = loader.getController();
+            controller.setSistema(this.sistema);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al regresar a la ventana anterior.");
+        }
+    }
 
     @FXML
     void ActionComboBoxEmbarcaciones(ActionEvent event) {
